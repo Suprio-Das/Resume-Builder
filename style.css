@@ -1,0 +1,88 @@
+body {
+    background: url(background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contact-list {
+    list-style: none !important;
+    line-height: 2rem;
+}
+
+#resumeContainer {
+    display: none;
+}
+
+input,
+textarea {
+    /* background-image: linear-gradient(to right top, #e22400, #dc6300, #cd8d00, #b7b100, #9ad121); */
+    /* border: 2px solid linear-gradient(to right top, #e22400, #dc6300, #cd8d00, #b7b100, #9ad121) !important; */
+    border-radius: 15px !important;
+    padding: 10px !important;
+}
+
+#inputContainerDiv {
+    /* From https://css.glass */
+    color: white;
+    background: rgba(255, 255, 255, 0.118);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.1px);
+    -webkit-backdrop-filter: blur(9.1px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* resume container */
+#resumeContainer {
+    color: black;
+    background: rgba(255, 255, 255, 0.118);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.1px);
+    -webkit-backdrop-filter: blur(9.1px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 10px;
+}
+
+#skillList {
+    padding: 10px;
+}
+
+.btn {
+    background-color: white !important;
+    padding: 10px 15px;
+    margin-top: 5px;
+    color: black;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    color: orangered;
+}
+
+@media screen and (max-width: 600px) {
+    #inputContainerDiv {
+        padding: 8px;
+    }
+
+    input,
+    textarea {
+        /* background-image: linear-gradient(to right top, #e22400, #dc6300, #cd8d00, #b7b100, #9ad121); */
+        /* border: 2px solid linear-gradient(to right top, #e22400, #dc6300, #cd8d00, #b7b100, #9ad121) !important; */
+        border-radius: 15px !important;
+        padding: 8px !important;
+
+    }
+
+    #addExperience {
+        display: block;
+        margin: auto;
+    }
+
+    #noExperience {
+        display: block;
+        margin: 5px auto;
+    }
+
+}

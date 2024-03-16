@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Your Resume</title>
+    <!-- bootstrap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- external css -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- html2canvas and jsPDF libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <div class="container mt-2">
+        <h1 class="fw-bold text-white text-center ">Resume<span class="text-warning ">Builder</span></h1>
+        <h5 class="text-white text-center">{...Build Your Resume Now...}</h5>
+    </div>
+    <!-- input section starts here -->
+    <section class="container mt-3 mb-3" id="inputSection">
+        <div class="w-75 mx-auto px-md-5 px-sm-3 py-3" id="inputContainerDiv">
+            <form action="" id="myForm" autocomplete="on">
+                <div class="mb-3">
+                    <label for="userNameInput" class="form-label fw-bold">Your Full Name:</label>
+                    <input type="text" class="form-control" id="userNameInput" placeholder="Ex: Suprio Das">
+                </div>
+                <!-- <div class="mb-3">
+                    <label for="userProfile" class="form-label fw-bold">Enter your profile:</label>
+                    <input type="file" class="form-control" id="userProfile">
+                </div> -->
+                <div class="mb-3">
+                    <label for="userRole" class="form-label fw-bold">Your Role:</label>
+                    <input type="text" class="form-control" id="userRole" placeholder="Ex: Web Developer">
+                </div>
+                <hr class="border border-3 border-success opacity-100 rounded">
+                <!-- experience section -->
+                <div id="experienceFieldDiv">
+                    <div id="experienceField">
+                        <!-- input field displayed by dom -->
+                    </div>
+                    <button type="button" class="btn btn-primary fw-bold" id="addExperience">+Add
+                        Experience</button>
+                    <button type="button" class="btn btn-primary fw-bold" id="noExperience">No Experience</button>
+                </div>
+                <hr class="border border-3 border-success opacity-100 rounded" id="eduHr">
+
+                <!-- education section -->
+                <h6 class="fw-bold">Enter any of your three educational
+                    qualification: </h6>
+                <div class="mb-3">
+                    <label for="qualificationOne" class="form-label fw-bold">Enter Qualification-1: </label>
+                    <input type="text" class="form-control" id="qualificationOne"
+                        placeholder="Ex: Bachelor Of Computer Science">
+                </div>
+                <div class="mb-3">
+                    <label for="qualificationInstitutionOne" class="form-label fw-bold">Institution name: </label>
+                    <input type="text" class="form-control" id="qualificationInstitutionOne"
+                        placeholder="Ex: Port City International University">
+                </div>
+                <div class="mb-3">
+                    <label for="qualificationOneSession" class="form-label fw-bold">Enter the session year: </label>
+                    <input type="text" class="form-control" id="qualificationOneSession" placeholder="Ex: 2022-2026">
+                </div>
+                <div class="mb-3">
+                    <label for="qualificationDetailsOne" class="form-label fw-bold">Qualification Details</label>
+                    <textarea class="form-control" id="qualificationDetailsOne" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="qualificationTwo" class="form-label fw-bold">Enter Qualification-2: </label>
+                    <input type="text" class="form-control" id="qualificationTwo"
+                        placeholder="Ex: Bachelor Of Computer Science">
+                </div>
+                <div class="mb-3">
+                    <label for="qualificationInstitutionTwo" class="form-label fw-bold">Institution name: </label>
+                    <input type="text" class="form-control" id="qualificationInstitutionTwo"
+                        placeholder="Ex: Port City International University">
+                </div>
+                <div class="mb-3">
+                    <label for="qualificationTwoSession" class="form-label fw-bold">Enter the session year: </label>
+                    <input type="text" class="form-control" id="qualificationTwoSession" placeholder="Ex: 2022-2026">
+                </div>
+                <div class="mb-3">
+                    <label for="qualificationDetailsTwo" class="form-label fw-bold">Qualification Details</label>
+                    <textarea class="form-control" id="qualificationDetailsTwo" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="qualificationThree" class="form-label fw-bold">Enter Qualification-3: </label>
+                    <input type="text" class="form-control" id="qualificationThree"
+                        placeholder="Ex: Bachelor Of Computer Science">
+                </div>
+                <div class="mb-3">
+                    <label for="qualificationInstitutionThree" class="form-label fw-bold">Institution name: </label>
+                    <input type="text" class="form-control" id="qualificationInstitutionThree"
+                        placeholder="Ex: Port City International University">
+                </div>
+                <div class="mb-3">
+                    <label for="qualificationThreeSession" class="form-label fw-bold">Enter the session year: </label>
+                    <input type="text" class="form-control" id="qualificationThreeSession" placeholder="Ex: 2022-2026">
+                </div>
+                <div class="mb-3">
+                    <label for="qualificationDetailsThree" class="form-label fw-bold">Qualification Details</label>
+                    <textarea class="form-control" id="qualificationDetailsThree" rows="3"></textarea>
+                </div>
+                <hr class="border border-3 border-success opacity-100 rounded">
+
+                <!-- Taking the contact information -->
+                <div class="mb-3">
+                    <label for="addressInput" class="form-label fw-bold">Enter Address: </label>
+                    <input type="text" class="form-control" id="addressInput" placeholder="Ex: Chittagong, Bangladesh">
+                </div>
+                <div class="mb-3">
+                    <label for="numberInput" class="form-label fw-bold">Enter Phone: </label>
+                    <input type="text" class="form-control" id="numberInput" placeholder="Ex: +8801610243375">
+                </div>
+                <div class="mb-3">
+                    <label for="emailInput" class="form-label fw-bold">Enter Email: </label>
+                    <input type="text" class="form-control" id="emailInput" placeholder="Ex: suprio.cse@gmail.com">
+                </div>
+                <div class="mb-3">
+                    <label for="linkInput" class="form-label fw-bold">Enter Website or any profile link:
+                    </label>
+                    <input type="text" class="form-control" id="linkInput" placeholder="Ex: www.github.com/Suprio-Das">
+                </div>
+                <hr class="border border-3 border-success opacity-100 rounded">
+                <!-- Skill section -->
+                <div id="skillContainer">
+                    <h6 class="fw-bold">Add your skills here: </h6>
+                    <div id="skillField">
+                        <!-- input field displayed by dom -->
+                    </div>
+                    <button type="button" class="btn btn-primary fw-bold" id="addSkill">+Add Skill</button>
+                    <!-- <button type="button" class="btn btn-primary fw-bold" id="noExperience">No Skill</button> -->
+                </div>
+                <!-- Skill section ends here -->
+                <hr class="border border-3 border-success opacity-100 rounded">
+                <button type="button" class="btn btn-primary mt-2" id="submitInput">Generate Resume</button>
+            </form>
+        </div>
+    </section>
+    <!-- input section ends here -->
+
+    <!-- dom section -->
+    <section class="container mt-5" id="resumeContainer">
+        <div class="bg-white resume" id="resume">
+            <div class="bg-primary p-2 text-white">
+                <h2 style="text-decoration: underline; text-underline-offset: 15px !important;" id="userNameField"></h2>
+                <P class="mt-3 fs-6 fw-bold" id="userRoleField"></P>
+            </div>
+            <div id="experienceContainer">
+                <div class="p-2 bg-dark mt-3">
+                    <h5 class="text-white">EXPERIENCE</h5>
+                </div>
+                <div class="mt-2">
+                    <ul id="experienceList">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-2">
+                <div class="mt-3">
+                    <h5 class="text-white bg-dark p-2">EDUCATION</h5>
+                </div>
+                <ul id="educationListParent" class="mt-2">
+                    <!-- educational background -->
+
+                </ul>
+            </div>
+            <!-- contact and skill section -->
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-center bg-dark text-white p-2">Contact</h5>
+                    <ul class="contact-list">
+                        <li> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" width="20px">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                            </svg>
+                            <span id="address">Lorem ipsum dolor sit amet.</span>
+                        </li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" width="20px">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                            </svg>
+                            <span id="phone">Lorem ipsum dolor sit amet.</span>
+                        </li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" width="20px">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                            </svg>
+                            <span id="email">Lorem ipsum dolor sit amet.</span>
+                        </li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" width="20px">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+                            </svg>
+                            <span id="link">Lorem ipsum dolor sit amet.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="text-center bg-dark text-white p-2">Skills</h5>
+                    <div class="row" id="skillList">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-success" onclick="captureAndSaveAsPDF()">Download ></button>
+        <button type="button" class="btn btn-primary mt-2" id="generateAgain">Generate Another</button>
+    </section>
+
+    <div class="container my-3">
+        <div class="footer text-center fs-6">
+            <code>Design and Developed By: Suprio Das</code>
+            <br>
+            <code>Find me on GitHub: <a href="https://github.com/Suprio-Das">Suprio-Das</a></code>
+        </div>
+    </div>
+
+    <!-- dom section ends here -->
+
+    <!-- bootstrap cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- external js -->
+    <script src="script.js"></script>
+</body>
+
+</html>
